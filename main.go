@@ -9,15 +9,16 @@ import (
 
 func myHandler(w http.ResponseWriter, r *http.Request) {
     fmt.Fprintf(w, "Hello there!\n")
-    getHost()
+    host := getHost()
+    fmt.Fprintf(w, host)
 }
 
-func getHost() {
+func getHost() string {
     name, err := os.Hostname()
     if err != nil {
         panic(err)
     }
-    fmt.Println("hostname:", name)
+    return "hostname:" + name
 }
 
 func main(){
