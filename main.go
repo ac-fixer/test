@@ -3,11 +3,21 @@ package main
 import (
     "net/http"
     "log"
-    "fmt" 
+    "fmt"
+    "os" 
 )
 
 func myHandler(w http.ResponseWriter, r *http.Request) {
     fmt.Fprintf(w, "Hello there!\n")
+    getHost()
+}
+
+funct getHost() {
+    name, err := os.Hostname()
+    if err != nil {
+        panic(err)
+    }
+    fmt.Println("hostname:", name)
 }
 
 func main(){
