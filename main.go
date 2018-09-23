@@ -12,7 +12,7 @@ func myHandler(w http.ResponseWriter, r *http.Request) {
     getHost()
 }
 
-funct getHost() {
+func getHost() {
     name, err := os.Hostname()
     if err != nil {
         panic(err)
